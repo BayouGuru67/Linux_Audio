@@ -7,7 +7,7 @@ where EasyEffects stores its output presets data. BayouGuru makes no warranty
 as to how well these presets may or may not work on your system.  As a matter
 of fact, they may damage your system if used improperly!
 
-BayouGuru is currently running version 7.1.1 of EasyEffects.  These presets
+BayouGuru is no longer using EasyEffects.  These presets
 are designed to run on a large Klipsch Surround Sound System via a Yamaha
 RX-A840 A/V Receiver.  The system has been set using YPAO for Natural sound.
 They should sound decent-enough on any system that is sufficiently capable
