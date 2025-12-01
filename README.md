@@ -1,4 +1,4 @@
-*Better audio on Linux...A myriad of solutions!  
+*Better audio on Linux...A myriad of solutions!*  
 
 One of the many benefits of being a Linux user is that we have so much more flexibility in the configuration of our computing experiences versus other Operating Systems. One of those areas of flexibility is the audio subsystem. With the advent of Pipewire, Linux audio has become easier and more user-friendly than ever before. This power is coming in handy as we transition into a streaming-based entertainment model. Something that is not so user-friendly about this trend is the widely varying audio levels and quality between the different videos, songs, services, etc. For the HTPC user, this can become a significant issue, greatly affecting one's enjoyment of the Linux multimedia experience. In my HTPC environment where an A/V receiver is amplifying the sound to the speakers and sending the video to the television or monitor, I prefer to keep the computer's output volume set @ 100% output (where the signal to noise ratio is the highest), and use the A/V receiver's remote to control the volume.  
 
