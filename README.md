@@ -39,23 +39,7 @@ I have previously added a filter, an EQ and a Bass Enhancer to Carla's rack of e
 - Inertia - 11 ms
 
 # Wayland Session Notes:
-I am no longer running the Calf Filter, or any of the Calf plugins, as they have not been updated to work on Plasma 6/Kubuntu 26.04 under wayland and as such do not run due to unmet dependencies.  I hope someone takes up development of them so I can start using their awesome bass enhancer again.  I have also migrated Carla to a Jack session with pw-jack which eliminated some latency, stability and quantum concerns I was experiencing that was resulting in the occasional hitching of audio and video playback as well as issues with errors due to quantum mismatches.  To fix these issues, I created a rule file named "99-buffer-fix.conf" in my ~/.config/pipewire/pipewire.conf.d/ directory with the contents being as follows:
-
-    context.properties = {
-    # Allow non-power-of-two buffer sizes (like 1260, 2520)
-    clock.power-of-two-quantum = false
-
-    # Force a stable default clock rate
-    default.clock.rate          = 48000
-    default.clock.allowed-rates = [ 48000 ]
-    
-    # Adjust quantum (buffer) sizes to prevent underruns
-    default.clock.quantum       = 1260
-    default.clock.min-quantum   = 1260
-    default.clock.max-quantum   = 5040
-    }
-    
-This has been done because Calra and I think specifically Luveler likes to insist on a quantum(buffer) of 5040 in my Wayland session, so I want my buffer to be the smallest possible factor of 5040 without stuttering or drop-outs.  This has turned out to be 1260.
+I am no longer running the Calf Filter, or any of the Calf plugins, as they have not been updated to work on Plasma 6/Kubuntu 26.04 under wayland and as such do not run due to unmet dependencies.  I hope someone takes up development of them so I can start using their awesome bass enhancer again.  I have migrated Carla to running as a daemon with a Jack session instead of Pulseaudio with pw-jack which eliminated some latency, stability and quantum concerns I was experiencing.  This has also allowed me to stop running qpwgraph to manage connections by using pipewire and wireplumber rules to automate the process of connecting all new audio sources to the new dummy sink and into Carla from there.
 
 I used to use the Calf 8-band parametric EQ plugin to customize the audio to be more pleasing to my older ears amd to provide the high-pass functionality formerly provided by the dedicated filter. I also used to use the Calf Bass Enhancer plugin to deepen the bass in my music when jamming. This effect reminds me of the Peavey Kosmos (& Kosmos Pro) or BBE's Bass/Sonic Enhancer effects that were used on analog PA systems to make that bass you 'feel' more than 'hear', which I am a big fan of. :)  
 
@@ -86,7 +70,7 @@ Any time you start a game or application for the first time using this audio pro
 I am still using qpwgraph to maintain the persistence of the connections across reboots/sessions until I can figure out why Carla stopped doing it for me after a reboot (as previously stated).  Once I figure this issue out, then that information on how to make that happen reliably will replace this paragraph and other logical edits will also be made, so watch this space for possible future developments!  
 
 **June 2026 Update!**
-Now that I am runing Carla uder a Wayland JACK session using pw-jack, I can set up a dummy sink in pipewire for all audio sources to auto-connect to that would then route the audio into Carla and on to the output(s), eliminating the need for qpwgraph entirely.  I have not yet committed to this plan, but I do plan to try implementing it in the near future and will edit this and other paragraphs with the observed results and procedures for implementation.
+Now that I am runing Carla uder a Wayland JACK session using pw-jack, I have set up rules and a dummy sink in pipewire/wireplumber for all audio sources to auto-connect to that then routes the audio into Carla and on to the output(s), eliminating the need for qpwgraph entirely!
 
 # EasyEffects_Presets
 BayouGuru's EasyEffects Presets!
